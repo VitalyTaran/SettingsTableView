@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        title = "Settings"
+        title = "Настройки"
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,14 +57,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func configure() {
+        models.append(Section(title: "Общее", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Авиарежим", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemRed, handler: {
+                
+            }, isOn: true)),
+         
+    ]))
         models.append(Section(title: "General", options: [
-            .staticCell(model: SettingsOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink){
+            .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemPink){
          print("Tapped first cell")
     }),
-    .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+    .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bonjour"), iconBackgroundColor: .link){
         
     }),
-    .staticCell(model: SettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
+    .staticCell(model: SettingsOption(title: "Сотовая связь", icon: UIImage(systemName: "antenna.radiowaves.left.and.right"), iconBackgroundColor: .systemGreen){
     
     }),
     .staticCell(model: SettingsOption(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange){
@@ -72,32 +78,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     })
     ]))
         
-        models.append(Section(title: "General", options: [
-            .staticCell(model: SettingsOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink){
+        models.append(Section(title: "Apps", options: [
+            .staticCell(model: SettingsOption(title: "Уведомления", icon: UIImage(systemName: "note"), iconBackgroundColor: .systemOrange){
          print("Tapped first cell")
     }),
-    .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+    .staticCell(model: SettingsOption(title: "Звуки & Уведомления", icon: UIImage(systemName: "badge.plus.radiowaves.right"), iconBackgroundColor: .systemRed){
         
     }),
-    .staticCell(model: SettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
+    .staticCell(model: SettingsOption(title: "Не беспокоить", icon: UIImage(systemName: "moon"), iconBackgroundColor: .systemPurple){
     
     }),
-    .staticCell(model: SettingsOption(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange){
+    .staticCell(model: SettingsOption(title: "Экранное время", icon: UIImage(systemName: "hourglass"), iconBackgroundColor: .systemPurple){
         
     })
     ]))
         
-        models.append(Section(title: "General", options: [
-            .staticCell(model: SettingsOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink){
+        models.append(Section(title: "Notification", options: [
+            .staticCell(model: SettingsOption(title: "Основные", icon: UIImage(systemName: "gear"), iconBackgroundColor: .systemGray){
          print("Tapped first cell")
     }),
-    .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+    .staticCell(model: SettingsOption(title: "Пункт Управления", icon: UIImage(systemName: "wrench.and.screwdriver"), iconBackgroundColor: .systemGray){
         
     }),
-    .staticCell(model: SettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
+    .staticCell(model: SettingsOption(title: "Экран и яркость", icon: UIImage(systemName: "textformat.size"), iconBackgroundColor: .systemBlue){
     
     }),
-    .staticCell(model: SettingsOption(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange){
+    .staticCell(model: SettingsOption(title: "Экран 'Домой'", icon: UIImage(systemName: "apps.ipad"), iconBackgroundColor: .systemBlue){
         
     })
     ]))
