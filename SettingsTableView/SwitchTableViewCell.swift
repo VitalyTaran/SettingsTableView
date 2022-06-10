@@ -61,7 +61,7 @@ import UIKit
             
             mySwitch.sizeToFit()
             mySwitch.frame = CGRect(x: contentView.frame.size.width - mySwitch.frame.size.width - 20 ,
-                                    y: (contentView.frame.size.height - mySwitch.frame.size.width)/2,
+                                    y: (contentView.frame.size.height - mySwitch.frame.size.height)/2,
                                     width: mySwitch.frame.size.width,
                                     height: mySwitch.frame.size.height)
             

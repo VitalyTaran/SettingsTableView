@@ -64,11 +64,11 @@
 				236167D228523D0100481D26 /* SceneDelegate.swift */,
 				236167D428523D0100481D26 /* ViewController.swift */,
 				236167E628525F0000481D26 /* SettingTableViewCell.swift */,
+				236167E82853B18B00481D26 /* SwitchTableViewCell.swift */,
 				236167D628523D0100481D26 /* Main.storyboard */,
 				236167D928523D0300481D26 /* Assets.xcassets */,
 				236167DB28523D0300481D26 /* LaunchScreen.storyboard */,
 				236167DE28523D0300481D26 /* Info.plist */,
-				236167E82853B18B00481D26 /* SwitchTableViewCell.swift */,
 			);
 			path = SettingsTableView;
 			sourceTree = "<group>";
