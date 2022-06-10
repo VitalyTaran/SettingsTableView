@@ -5,7 +5,13 @@
 //  Created by Виталий Таран on 09.06.2022.
 //
 
+
 import UIKit
+
+struct Section {
+    let title: String
+    let options: [SettingsOption]
+}
 
 struct SettingsOption {
     let title: String
@@ -23,7 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return table
     }()
     
-    var models = [SettingsOption]()
+    var models = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +42,69 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func configure() {
-        self.models = Array(0...100).compactMap({
-            SettingsOption(title: "Item \($0)", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
-                
-            }
-        })
+        models.append(Section(title: "General", options: [
+    SettingsOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink){
+         print("Tapped first cell")
+    },
+    SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+        
+    },
+    SettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
+    
+    },
+    SettingsOption(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange){
+            
+    
+        }
+    ]))
+        
+        models.append(Section(title: "Information", options: [
+    SettingsOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink){
+    
+    },
+    SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+        
+    },
+    SettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
+    
+    },
+    SettingsOption(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange){
+            
+    
+        }
+    ]))
+        
+        models.append(Section(title: "Apps", options: [
+    SettingsOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink){
+    
+    },
+    SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+        
+    },
+    SettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen){
+    
+    },
+    SettingsOption(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange){
+            
+    
+        }
+    
+    ]))
+        
     }
+    
+    
+        
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+        }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return models[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.row]
+        let model = models[indexPath.section].options[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: SettingTableViewCell.identifier,
             for: indexPath
@@ -58,6 +114,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.configure(with: model)
         return cell
     }
+    
+        func tableView(_tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            let model = models[indexPath.section].options[indexPath.row]
+            model.handler()
+        }
 
 }
+
+
 
