@@ -5,7 +5,6 @@
 //  Created by Виталий Таран on 04.07.2022.
 //
 
-
 import UIKit
 
 struct CellApi {
@@ -55,7 +54,7 @@ struct CellApi {
                              title: "Пункт управления"),
                         Cell(image: "textformat.size",
                              title: "Экран и яркость"),
-                        Cell(image: "homescreen",
+                        Cell(image: "house",
                              iconColor: .systemBlue,
                              title: "Экран \u{00AB}Домой\u{00BB}",
                              isCustomCell: true),
@@ -66,4 +65,5 @@ struct CellApi {
         return [section1, section2, section3]
     }
 }
+
 
